@@ -3,6 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.1'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0.0'
+end
+
+gem 'rails-controller-testing'
+
 # Add rubocop
 gem 'rubocop', '>= 1.0', '< 2.0'
 
