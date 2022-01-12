@@ -14,7 +14,7 @@ RSpec.describe 'Users', type: :request do
 
     it 'The body includes the correct placeholder text' do
       get '/users'
-      expect(response.body).to include("Here is a list of users")
+      expect(response.body).to include('Here is a list of users')
     end
   end
 
@@ -31,7 +31,7 @@ RSpec.describe 'Users', type: :request do
 
     it 'The body includes the correct placeholder text' do
       get '/users/1'
-      expect(response.body).to include("Here is a profile for a given user")
+      expect(response.body).to include('Here is a profile for a given user')
     end
   end
 end
