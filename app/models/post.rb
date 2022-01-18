@@ -8,9 +8,8 @@ class Post < ApplicationRecord
     user.posts_counter += 1
     user.save
   end
-  
-  def recent_comments
-    comments.order(text:, created_at: :desc).limit(5)
-  end
 
+  def recent_comments
+    comments.order(created_at: :desc).limit(5)
+  end
 end
