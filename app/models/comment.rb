@@ -4,7 +4,7 @@ class Comment < ApplicationRecord
 
   def update_comments_counter(post_id)
     post = Post.find(post_id)
-    post.comments_counter(+1)
+    post.comments_counter += 1
     post.save
   end
 end
