@@ -1,0 +1,8 @@
+<ul class="container border">
+  <% post.comments.each do |comment| %>
+    <li>
+      <%= comment.user.name%>
+      <%= comment.text %>
+    </li>
+  <% end %>
+</ul>
