@@ -1,1 +1,2 @@
-<h1>Here is a specific post for a given user</h1>
+<%= render partial: "shared/post_container_full", locals: { post: @post} %>
+<%= render partial: "shared/comments_container", locals: { post: @post} %>
