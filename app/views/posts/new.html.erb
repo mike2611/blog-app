@@ -1,14 +1,7 @@
 <h1>New post</h1>
 
 <%= form_with model: @post, url: user_posts_path do |form| %>
-  <% if @post.errors.any? %>
-    <div class="alert alert-danger">
-      <% @post.errors.full_messages.each do |message| %>
-        <div><%= message %></div>
-      <% end %>
-    </div>
-  <% end %>
-
+  <%= render "shared/form_errors", form: form %>
   <div class="mb-3">
     <%= form.label :title %>
     <%= form.text_field :title, class:"form-control", placeholder: "Title" %>
