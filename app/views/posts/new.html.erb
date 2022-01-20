@@ -1,0 +1,23 @@
+<h1>New post</h1>
+
+<%= form_with model: @post, url: user_posts_path do |form| %>
+  <% if @post.errors.any? %>
+    <div class="alert alert-danger">
+      <% @post.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :title %>
+    <%= form.text_field :title, class:"form-control", placeholder: "Title" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :text %>
+    <%= form.text_area :text, class:"form-control", placeholder: "Text" %>
+  </div>
+  <div class="mb-3">
+    <%= form.submit  "Add Post", class:"btn btn-primary", data: { turbo: false } %>
+  </div>
+<% end %>
