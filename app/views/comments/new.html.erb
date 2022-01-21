@@ -1,0 +1,12 @@
+<h1>New comment</h1>
+
+<%= form_with model: @comment, url: user_post_comments_path do |form| %>
+  <%= render "shared/form_errors", form: form %>
+  <div class="mb-3">
+    <%= form.label :new_comment %>
+    <%= form.text_area :text, class:"form-control", placeholder: "Text" %>
+  </div>
+  <div class="mb-3">
+    <%= form.submit  "Add new comment", class:"btn btn-primary", data: { turbo: false } %>
+  </div>
+<% end %>

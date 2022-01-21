@@ -3,6 +3,9 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
+  validates :text, presence: true
+  validates :title, presence: true
+
   def update_posts_counter(user_id)
     user = User.find(user_id)
     user.posts_counter += 1
