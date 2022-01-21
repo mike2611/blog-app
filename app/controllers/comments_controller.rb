@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   def new
     @comment = Comment.new
-  end
-
+  end  
+  
   def create
     current_user = User.find(params[:user_id])
     current_post = Post.find(params[:post_id])
@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to root_path, notice: 'Succesfully created new comment'
     else
+      flash[:alert] = "Error creating comment"
       render :new
     end
   end

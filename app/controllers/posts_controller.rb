@@ -22,6 +22,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path, notice: 'Succesfully created new post'
     else
+      flash[:alert] = "Error creating new post"
       render :new
     end
   end
