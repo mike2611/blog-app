@@ -3,8 +3,8 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
-  validates :text, length:, presence: true
-  validates :title, {minimum: 3, maximum: 250}, presence: true
+  validates :text, presence: true
+  validates :title, length: {minimum: 3, maximum: 250}, presence: true
   validates :comments_counter, numericality: {greater_than_or_equal_to: 0 , only_integer: true}
   validates :likes_counter, numericality: {greater_than_or_equal_to: 0 , only_integer: true}
 
