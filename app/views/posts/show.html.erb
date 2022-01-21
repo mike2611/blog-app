@@ -1,2 +1,7 @@
 <%= render partial: "shared/post_container_full", locals: { post: @post} %>
 <%= render partial: "shared/comments_container", locals: { post: @post} %>
+<div class="container d-flex justify-content-end">
+    <%= form_with model: @post, url: [:user_post_likes, post_id: @post.id] do |form| %>
+        <%= form.submit "Add Like", class:"btn btn-primary"%>
+    <% end %>
+</div>
