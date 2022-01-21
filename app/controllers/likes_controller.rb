@@ -6,11 +6,11 @@ class LikesController < ApplicationRecord
     @like.user = current_user
     @like.post = current_post
     if @like.save
-      flash[:notice] = "Succesfully added new like"
+      flash[:notice] = 'Succesfully added new like'
       @like.update_likes_counter(current_post.id)
     else
-      flash[:alert] = "Error adding new like"
+      flash[:alert] = 'Error adding new like'
     end
-      redirect_to [current_post]
+    redirect_to [current_post]
   end
 end
