@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
     expect(@user).to_not be_valid
   end
 
-  it 'show the 3 most recent post' do
+  it 'recent_posts method show the 3 most recent post' do
     @user.posts.new(title: 'test1', text: 'test', comments_counter: 0, likes_counter: 0)
     @user.posts.new(title: 'test2', text: 'test', comments_counter: 0, likes_counter: 0)
     @user.posts.new(title: 'test3', text: 'test', comments_counter: 0, likes_counter: 0)
