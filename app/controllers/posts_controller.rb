@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     @post.comments_counter = 0
     @post.likes_counter = 0
     if @post.save
-      redirect_to root_path, notice: "Succesfully created new post"
+      redirect_to root_path, notice: 'Succesfully created new post'
     else
       render :new
     end
@@ -31,5 +31,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :text)
   end
-
 end

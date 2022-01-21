@@ -5,9 +5,7 @@ class LikesController < ApplicationRecord
     @like = Like.new
     @like.user = current_user
     @like.post = current_post
-    if @like.save
-      @like.update_likes_counter(current_post.id)
-      redirect_to [current_post]
-    end
+    @like.update_likes_counter(current_post.id) if @like.save
+    redirect_to [current_post]
   end
 end
