@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to root_path, notice: 'Succesfully created new comment'
     else
+      flash[:alert] = 'Error creating comment'
       render :new
     end
   end

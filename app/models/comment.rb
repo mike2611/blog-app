@@ -4,8 +4,7 @@ class Comment < ApplicationRecord
 
   validates :text, presence: true
 
-  def update_comments_counter(post_id)
-    post = Post.find(post_id)
+  def update_comments_counter
     post.comments_counter += 1
     post.save
   end
