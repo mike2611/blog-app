@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.1'
 
+
 group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
 end
@@ -11,6 +12,9 @@ gem 'rails-controller-testing'
 
 # Add rubocop
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+# Add devise
+gem 'devise'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.1'
