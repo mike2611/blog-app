@@ -7,5 +7,5 @@
 <%= render partial: "shared/post_container", locals: { post: post} %>
 <% end %>
 <div class="d-flex justify-content-center">
-  <button> See all posts </button>
+  <%= link_to "See all posts from this user", [@user, :posts] %>
 </div>
