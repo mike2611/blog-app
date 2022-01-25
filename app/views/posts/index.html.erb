@@ -7,7 +7,5 @@
 <% end %>
 
 <div class="container">
-<% if can? :create, Post %>
-  <%= link_to 'Create Post', new_user_post_path %>
-<% end %>
+<%= link_to "Create a new Post", new_user_post_path if (can? :create, Post) && (@user.id == current_user.id) %>
 </div>
