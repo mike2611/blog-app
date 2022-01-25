@@ -10,7 +10,7 @@ end
 gem 'rails-controller-testing'
 
 # Add cancancan
-gem 'cancancan', '~> 1.9'
+gem 'cancancan'
 
 # Add rubocop
 gem 'rubocop', '>= 1.0', '< 2.0'
