@@ -5,3 +5,9 @@
   <%= render partial: "shared/post_container", locals: { post: post} %>
   <%= render partial: "shared/comments_container", locals: { post: post} %>
 <% end %>
+
+<div class="container">
+<% if can? :create, Post %>
+  <%= link_to 'Create Post', new_user_post_path %>
+<% end %>
+</div>
