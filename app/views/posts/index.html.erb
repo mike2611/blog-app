@@ -4,8 +4,9 @@
 <% @posts.each do |post| %>
   <%= render partial: "shared/post_container", locals: { post: post} %>
   <%= render partial: "shared/comments_container", locals: { post: post} %>
-  <div class="container border">
-    <%= button_to "Delete post: #{post.title}", user_post_path(id: post.id), method: :delete, class:'btn btn-primary my-3' if can? :destroy, post %>
+  <div class="container border d-flex justify-content-end">
+    <%= button_to "Details #{post.title}", user_post_path(id: post.id), method: :get, class:'btn btn-primary my-3 mx-2' %>
+    <%= button_to "Delete #{post.title}", user_post_path(id: post.id), method: :delete, class:'btn btn-danger my-3' if can? :destroy, post %>
   </div>
 <% end %>
 
