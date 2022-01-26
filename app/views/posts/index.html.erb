@@ -4,8 +4,11 @@
 <% @posts.each do |post| %>
   <%= render partial: "shared/post_container", locals: { post: post} %>
   <%= render partial: "shared/comments_container", locals: { post: post} %>
+  <div class="container border">
+    <%= button_to "Delete post: #{post.title}", user_post_path(id: post.id), method: :delete, class:'btn btn-primary my-3' if can? :destroy, post %>
+  </div>
 <% end %>
 
 <div class="container">
-<%= link_to "Create a new Post", new_user_post_path if (can? :create, Post) && (@user.id == current_user.id) %>
+  <%= link_to "Create a new Post", new_user_post_path if (can? :create, Post) && (@user.id == current_user.id) %>
 </div>
