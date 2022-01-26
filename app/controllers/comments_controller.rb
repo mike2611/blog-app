@@ -1,20 +1,24 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   def new
     @comment = Comment.new
   end
 
   def create
-    current_user = User.find(params[:user_id])
-    current_post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
     @comment.user = current_user
-    @comment.post = current_post
+    @comment.post = Post.find(params[:post_id])
     if @comment.save
       redirect_to root_path, notice: 'Succesfully created new comment'
     else
       flash[:alert] = 'Error creating comment'
       render :new
     end
+  end
+
+  def destroy
+    @comment.destroy
+    redirect_to user_posts_path
   end
 
   private

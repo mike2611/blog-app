@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments).limit(5)
@@ -8,14 +9,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def new
-    @post = Post.new
-  end
+  def new; end
 
   def create
-    current_user = User.find(params[:user_id])
-    @post = Post.new(post_params)
-    @post.user = current_user
     @post.comments_counter = 0
     @post.likes_counter = 0
     if @post.save
@@ -24,6 +20,11 @@ class PostsController < ApplicationController
       flash[:alert] = 'Error creating new post'
       render :new
     end
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to user_posts_path
   end
 
   private
