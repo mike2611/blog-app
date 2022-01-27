@@ -8,8 +8,16 @@ class Post < ApplicationRecord
   validates :comments_counter, numericality: { greater_than_or_equal_to: 0, only_integer: true }
   validates :likes_counter, numericality: { greater_than_or_equal_to: 0, only_integer: true }
 
-  def update_posts_counter
+  def increase_counter
+    user.posts_counter = 0 if user.posts_counter.nil?
     user.posts_counter += 1
+    user.save
+  end
+
+  def decrease_counter
+    return if user.posts_counter <= 0 || user.posts_counter.nil?
+
+    user.posts_counter -= 1
     user.save
   end
 

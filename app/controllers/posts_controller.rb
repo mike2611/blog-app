@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     @post.comments_counter = 0
     @post.likes_counter = 0
     if @post.save
+      @post.increase_counter
       redirect_to root_path, notice: 'Succesfully created new post'
     else
       flash[:alert] = 'Error creating new post'
@@ -23,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
+    @post.decrease_counter if @post.destroy
     redirect_to user_posts_path
   end
 
