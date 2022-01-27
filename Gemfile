@@ -6,7 +6,6 @@ ruby '3.0.1'
 group :development, :test do
   gem 'capybara-chrome', '~> 0.1.24'
   gem 'rspec-rails', '~> 5.0.0'
-  gem 'webdrivers'
 end
 
 gem 'rails-controller-testing'

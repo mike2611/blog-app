@@ -30,7 +30,7 @@ RSpec.describe 'User index', type: :system do
       visit user_posts_path(@user.id)
       click_link 'Create a new Post'
       sleep(1)
-      fill_in 'post_title', with: "post"
+      fill_in 'post_title', with: 'post'
       fill_in 'post_text', with: 'lorem ipsum'
       click_button 'Add Post'
       sleep(1)
@@ -40,12 +40,12 @@ RSpec.describe 'User index', type: :system do
       first(:button, 'Details').click
       expect(page).to have_content("post by #{@user.name}")
     end
-    
+
     it 'it redirects to the correct path' do
       visit user_posts_path(@user.id)
       click_link 'Create a new Post'
       sleep(1)
-      fill_in 'post_title', with: "post"
+      fill_in 'post_title', with: 'post'
       fill_in 'post_text', with: 'lorem ipsum'
       click_button 'Add Post'
       sleep(1)
@@ -59,7 +59,7 @@ RSpec.describe 'User index', type: :system do
   describe 'Check the posts' do
     before(:each) do
       @user = User.new(name: 'Joe', photo: 'https://i.pravatar.cc/200?img=3', bio: 'joe bio', posts_counter: 0,
-        email: 'joe@mail.com', password: 'pass123')
+                       email: 'joe@mail.com', password: 'pass123')
       @user.skip_confirmation!
       @user.save
       visit root_path
@@ -68,7 +68,7 @@ RSpec.describe 'User index', type: :system do
       fill_in 'user_password', with: 'pass123'
       click_button 'Log in'
       sleep(2)
-      (1..4).each do |n| 
+      (1..4).each do |n|
         visit user_posts_path(@user.id)
         click_link 'Create a new Post'
         sleep(1)
@@ -78,7 +78,7 @@ RSpec.describe 'User index', type: :system do
         sleep(1)
       end
     end
-    it 'it shows the last 3 posts' do            
+    it 'it shows the last 3 posts' do
       visit user_path(id: @user.id)
       expect(page).to have_content('post 1')
       expect(page).to have_content('post 2')
