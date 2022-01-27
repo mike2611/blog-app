@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.post = Post.find(params[:post_id])
     if @comment.save
-      redirect_to root_path, notice: 'Succesfully created new comment'
+      @comment.increase_counter
+      redirect_to user_posts_path, notice: 'Succesfully created new comment'
     else
       flash[:alert] = 'Error creating comment'
       render :new
@@ -17,7 +18,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.destroy
+    @comment.decrease_counter if @comment.destroy
     redirect_to user_posts_path
   end
 

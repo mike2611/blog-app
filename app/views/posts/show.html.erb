@@ -3,8 +3,8 @@
 <%= render partial: "shared/post_container_full", locals: { post: @post} %>
 <%= render partial: "shared/comments_container", locals: { post: @post} %>
 <div class="container d-flex justify-content-end">
-    <%= button_to "Add new comment", new_user_post_comment_path(post_id: @post.id), method: :get, class:'btn btn-primary mx-2' %>
-    <%= form_with model: @post, url: [:user_post_likes, post_id: @post.id] do |form| %>
-        <%= form.submit "Add Like", class:"btn btn-primary"%>
-    <% end %>
+  <%= button_to "Add new comment", new_user_post_comment_path(post_id: @post.id), method: :get, class: 'btn btn-primary mx-2' %>
+  <%= form_with url: user_post_likes_path(@user.id, @post.id) do |f| %>
+    <%= f.submit "Add like", class: 'btn btn-primary mx-2' %>
+  <% end %>
 </div>

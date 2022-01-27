@@ -2,16 +2,18 @@
 
 <%= render partial: "shared/user_container", locals: { user: @user } %>
 <% @posts.each do |post| %>
-<div class="container border ">
-  <%= render partial: "shared/post_container", locals: { post: post} %>
-  <%= render partial: "shared/comments_container", locals: { post: post} %>
-  <div class="d-flex justify-content-end">
-    <%= button_to "Details", user_post_path(id: post.id), method: :get, class:'btn btn-primary my-3 mx-2' %>
-    <%= button_to "Delete", user_post_path(id: post.id), method: :delete, class:'btn btn-danger my-3' if can? :destroy, post %>
+  <div class="container border ">
+    <%= render partial: "shared/post_container", locals: { post: post} %>
+    <%= render partial: "shared/comments_container", locals: { post: post} %>
+    <div class="d-flex justify-content-end">
+      <%= button_to "Details", user_post_path(id: post.id), method: :get, class: 'btn btn-primary my-3 mx-2' %>
+      <%= button_to "Delete", user_post_path(id: post.id), method: :delete, class:'btn btn-danger my-3' if can? :destroy, post %>
+    </div>
   </div>
-</div>
 <% end %>
-
+<div class='d-flex justify-content-center'>
+  <button class='btn btn-primary my-3 mx-2'>Pagination</button>
+</div>
 <div class="container">
   <%= link_to "Create a new Post", new_user_post_path if (can? :create, Post) && (@user.id == current_user.id) %>
 </div>
