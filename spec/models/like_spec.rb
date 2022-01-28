@@ -8,7 +8,7 @@ RSpec.describe Like, type: :model do
   end
 
   it 'update_likes_counter' do
-    @like.update_likes_counter
+    @like.increase_counter
     expect(@post.likes_counter).to eq 1
   end
 end

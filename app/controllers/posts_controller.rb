@@ -6,7 +6,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @user = User.find(params[:user_id])
+    @post = @user.posts.includes(:comments).find(params[:id])
+    # @post = Post.find(params[:id])
   end
 
   def new; end
@@ -15,6 +17,7 @@ class PostsController < ApplicationController
     @post.comments_counter = 0
     @post.likes_counter = 0
     if @post.save
+      @post.increase_counter
       redirect_to root_path, notice: 'Succesfully created new post'
     else
       flash[:alert] = 'Error creating new post'
@@ -23,7 +26,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
+    @post.decrease_counter if @post.destroy
     redirect_to user_posts_path
   end
 

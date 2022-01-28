@@ -6,7 +6,7 @@
   <h2>Bio</h2>
   <%= @user.bio%>
 </div>
-<% @user.posts.each do |post| %>
+<% @posts.each do |post| %>
   <%= render partial: "shared/post_container", locals: { post: post} %>
 <% end %>
 <div class="d-flex justify-content-center">

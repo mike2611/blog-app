@@ -1,16 +1,12 @@
-class LikesController < ApplicationRecord
+class LikesController < ApplicationController
   def create
-    current_user = User.find(params[:user_id])
-    current_post = Post.find(params[:id])
-    @like = Like.new
-    @like.user = current_user
-    @like.post = current_post
+    @post = Post.find(params[:post_id])
+    @like = @post.likes.new(user: current_user)
     if @like.save
+      @like.increase_counter
       flash[:notice] = 'Succesfully added new like'
-      @like.update_likes_counter(current_post.id)
     else
       flash[:alert] = 'Error adding new like'
     end
-    redirect_to [current_post]
   end
 end

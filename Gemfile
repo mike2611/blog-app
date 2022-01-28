@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.1'
 
 group :development, :test do
+  gem 'capybara-chrome', '~> 0.1.24'
   gem 'rspec-rails', '~> 5.0.0'
 end
 
