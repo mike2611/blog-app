@@ -15,6 +15,8 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 # Add devise
 gem 'devise'
+gem 'devise-jwt'
+gem 'rack-cors'
 
 # Add cancancan
 gem 'cancancan', '~> 3.2.0'
