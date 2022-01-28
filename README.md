@@ -1,6 +1,6 @@
 # RoR Blog App
 
-> A blog app made on ruby on rails
+> A blog app made on Ruby on Rails
 
 ## Built With
 
@@ -15,7 +15,9 @@ Postgresql >= 12.0
 **The project comes shipped with linters config for ruby on rails, so ensure you have Rubocop and npm installed**
 
 - To get a local copy of the repository please run the following commands on your terminal:
-- git clone https://github.com/mike2611/blog-app.git
+   ```
+   git clone https://github.com/mike2611/blog-app.git
+   ```
 - Go to the cloned directory with `cd blop-app`
 - Run `bundle install` to install the necessary packages
 - Install the `postgresql` database and all necessary dependencies for your system
@@ -29,7 +31,7 @@ Sign-up:
 ```
 curl -XPOST -H "Content-Type: application/json" -d '{ "user": { "name": "John", "photo": "https://i.pravatar.cc/200?img=3", "bio": "some bio", "posts_counter": "0", "email": "test@example.com", "password": "12345678" } }' http://localhost:3000/users
 ```
-Click the link in the terminal to confirm the registration:
+Click the link in the terminal to confirm the registration, and then sign in:
 
 ```
 curl -XPOST -i -H "Content-Type: application/json" -d '{ "user": { "email": "test@example.com", "password": "12345678" } }' http://localhost:3000/users/sign_in
