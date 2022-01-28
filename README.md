@@ -15,11 +15,11 @@ Postgresql >= 12.0
 **The project comes shipped with linters config for ruby on rails, so ensure you have Rubocop and npm installed**
 
 - To get a local copy of the repository please run the following commands on your terminal:
-- $ git clone https://github.com/mike2611/blog-app.git
-- $ cd blog-app
-- $ run `bundle install` to couple all dependencies
-- Install the `postgresql` database system and all necessary dependencies
-- Run `rails db:create` to create the database locally or if already have one run `rails db:reset` instead
+- git clone https://github.com/mike2611/blog-app.git
+- Go to the cloned directory with `cd blop-app`
+- Run `bundle install` to install the necessary packages
+- Install the `postgresql` database and all necessary dependencies for your system
+- Run `rails db:create` to create the database locally or if already have one with the same name run `rails db:reset` instead
 - After installing everything, you can run now the website with `rails s`
 
 <details>
