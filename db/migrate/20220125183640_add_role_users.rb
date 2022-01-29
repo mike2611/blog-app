@@ -1,4 +1,4 @@
-class AddRoleUsers < ActiveRecord::Migration[7.0]
+class AddRoleUsers < ActiveRecord::Migration[6.1]
   def change
     add_column :users, :role, :string
   end
