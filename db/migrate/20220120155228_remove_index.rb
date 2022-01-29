@@ -1,4 +1,4 @@
-class RemoveIndex < ActiveRecord::Migration[7.0]
+class RemoveIndex < ActiveRecord::Migration[6.1]
   def change
     remove_index :posts, :user_id
   end
